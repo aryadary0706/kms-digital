@@ -7,6 +7,7 @@ import Card from '../../components/ui/Card';
 import { useToast } from '../../components/ui/Toast';
 import { useExportCsvDesa } from '../../queries/useExportQueries';
 import { useSession } from '../auth/useSession';
+import { printElementToPdf } from '../../utils/printElementToPdf';
 
 const EMPTY_POSYANDU_LIST = [];
 
@@ -54,20 +55,8 @@ export default function ExportDesaForm({ posyanduList = EMPTY_POSYANDU_LIST, pri
     }
     try {
       setIsPrinting(true);
-      // react-doctor-disable-next-line -- dynamic import() intentionally code-splits the heavy js-html2pdf lib; React Compiler can't lower import expressions yet, bailout is expected.
-      const html2pdfModule = await import('js-html2pdf');
-      const Html2Pdf = html2pdfModule.default ?? html2pdfModule;
-
       const filename = `Laporan-Desa-${user?.nama_desa ?? user?.desa_name ?? 'KMS'}-${dayjs().format('YYYY-MM-DD')}.pdf`;
-      const opt = {
-        margin: [12, 12, 12, 12],
-        filename,
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      };
-
-      await new Html2Pdf(printableRef.current, opt).getPdf(true);
+      await printElementToPdf(printableRef.current, filename);
       toast.success('Laporan PDF berhasil dibuat');
       setIsPrinting(false);
     } catch (err) {

@@ -12,9 +12,9 @@ export async function printElementToPdf(
   if (!element) {
     throw new Error('Elemen untuk dicetak tidak tersedia');
   }
-  // react-doctor-disable-next-line -- dynamic import() intentionally code-splits the heavy js-html2pdf lib.
-  const mod = await import('js-html2pdf');
-  const Html2Pdf = (mod as any).default ?? mod;
+  // react-doctor-disable-next-line -- dynamic import() intentionally code-splits the heavy html2pdf.js lib.
+  const mod = await import('html2pdf.js');
+  const html2pdf = (mod as any).default ?? mod;
   const opt = { ...DEFAULT_OPT, filename };
-  await new Html2Pdf(element, opt).getPdf(true);
+  await html2pdf().set(opt).from(element).save();
 }

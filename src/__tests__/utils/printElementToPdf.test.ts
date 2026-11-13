@@ -1,11 +1,11 @@
 import { describe, expect, test, vi, beforeEach } from 'vitest';
 
-const getPdfMock = vi.fn(() => Promise.resolve());
-const html2pdfMock = vi.fn(function (_element: HTMLElement, _opt: { filename: string }) {
-  return { getPdf: getPdfMock };
-});
+const saveMock = vi.fn(() => Promise.resolve());
+const fromMock = vi.fn(() => ({ save: saveMock }));
+const setMock = vi.fn(() => ({ from: fromMock }));
+const html2pdfMock = vi.fn(() => ({ set: setMock }));
 
-vi.mock('js-html2pdf', () => ({ default: html2pdfMock }));
+vi.mock('html2pdf.js', () => ({ default: html2pdfMock }));
 
 import { printElementToPdf } from '../../utils/printElementToPdf';
 
@@ -22,9 +22,9 @@ describe('printElementToPdf', () => {
     const el = document.createElement('div');
     await printElementToPdf(el, 'Kartu.pdf');
     expect(html2pdfMock).toHaveBeenCalledTimes(1);
-    const [passedEl, opt] = html2pdfMock.mock.calls[0];
-    expect(passedEl).toBe(el);
+    const [opt] = setMock.mock.calls[0] as unknown as [{ filename: string }];
     expect(opt.filename).toBe('Kartu.pdf');
-    expect(getPdfMock).toHaveBeenCalledWith(true);
+    expect(fromMock).toHaveBeenCalledWith(el);
+    expect(saveMock).toHaveBeenCalledTimes(1);
   });
 });
