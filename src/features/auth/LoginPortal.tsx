@@ -142,7 +142,7 @@ export default function LoginPortal() {
                   KMS Digital
                 </span>
                 <span className="text-caption text-white/60">
-                  Posyandu Lebakwangi
+                  Posyandu Cibabat
                 </span>
               </span>
             </Link>
@@ -178,7 +178,7 @@ export default function LoginPortal() {
           </div>
 
           <div className="relative text-caption text-white/50">
-            · {new Date().getFullYear()} Posyandu Lebakwangi
+            · {new Date().getFullYear()} Posyandu Cibabat
           </div>
         </aside>
 
@@ -197,7 +197,7 @@ export default function LoginPortal() {
                 <span className="text-body-sm font-bold text-deep-slate tracking-tight">
                   KMS Digital
                 </span>
-                <span className="text-caption text-graphite">Posyandu Lebakwangi</span>
+                <span className="text-caption text-graphite">Posyandu Cibabat</span>
               </span>
             </Link>
           </header>

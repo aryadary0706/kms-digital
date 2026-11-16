@@ -23,7 +23,7 @@ export default function AdminDashboard() {
       <PageHeader
         eyebrow={`Panel Admin · ${greetingPart()}`}
         title={`Halo, ${adminName}`}
-        subtitle="Ringkasan aktivitas KMS Digital Lebakwangi."
+        subtitle="Ringkasan aktivitas KMS Digital Cibabat."
         dataTourId="admin-dashboard-header"
       />
 

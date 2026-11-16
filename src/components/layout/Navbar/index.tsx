@@ -49,7 +49,7 @@ function BrandMark({ desaName }) {
           KMS Digital
         </span>
         <span className="text-caption text-graphite">
-          {desaName ? `Posyandu ${desaName}` : "Posyandu Lebakwangi"}
+          {desaName ? `Posyandu ${desaName}` : "Posyandu Cibabat"}
         </span>
       </span>
     </Link>

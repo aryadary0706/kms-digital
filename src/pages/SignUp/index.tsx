@@ -163,13 +163,9 @@ export default function SignUp() {
             </Link>
           </header>
 
-          <div className="flex-1 flex items-start lg:items-center justify-center px-[17px] py-[33px] md:px-[33px] lg:px-[67px] xl:px-[95px]">
+          <div className="flex-1 flex items-start lg:items-center justify-center px-[17px] py-[50px] md:px-[33px] lg:px-[67px] xl:px-[95px]">
             <div className="w-full max-w-[480px]">
               <div className="mb-[33px]">
-                <p className="inline-flex items-center gap-[8px] text-caption font-bold uppercase tracking-[0.14em] text-primary-600 mb-[13px]">
-                  <Sparkles size={14} strokeWidth={2.25} />
-                  Daftar Akun Baru
-                </p>
                 <h1 className="text-heading-lg md:text-display font-bold text-deep-slate leading-[1.05] tracking-tight mb-[13px]">
                   Buat akun Anda
                 </h1>

@@ -89,7 +89,7 @@ export function LandingPage() {
               <div>
                 <span className="inline-flex items-center gap-[8px] text-caption font-bold uppercase tracking-[0.14em] text-primary-600 mb-[25px]">
                   <Sparkles size={14} strokeWidth={2.25} />
-                  KMS Digital · Posyandu Lebakwangi
+                  KMS Digital - Posyandu Cibabat
                 </span>
                 <h1 className="text-display md:text-display-lg font-bold text-deep-slate leading-[0.98] tracking-tight mb-[25px]">
                   Tumbuh kembang anak,{" "}
