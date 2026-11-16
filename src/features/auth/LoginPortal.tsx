@@ -120,7 +120,7 @@ export default function LoginPortal() {
             className="pointer-events-none absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage:
-                'radial-gradient(circle, #ffffff 1px, transparent 1px)',
+                'radial-gradient(circle, rgb(var(--color-white)) 1px, transparent 1px)',
               backgroundSize: '22px 22px',
             }}
           />
@@ -134,9 +134,6 @@ export default function LoginPortal() {
               to="/"
               className="inline-flex items-center gap-[10px] group"
             >
-              <span className="flex items-center justify-center w-[44px] h-[44px] rounded-full bg-primary-500 text-white transition-transform group-hover:scale-[1.05] duration-150 ease-out-quart">
-                <Heart size={22} strokeWidth={2.25} fill="currentColor" fillOpacity={0.25} />
-              </span>
               <span className="flex flex-col leading-[1.1]">
                 <span className="text-body-sm font-bold tracking-tight">
                   KMS Digital
@@ -149,10 +146,6 @@ export default function LoginPortal() {
           </div>
 
           <div className="relative max-w-[520px]">
-            <p className="inline-flex items-center gap-[8px] text-caption font-bold uppercase tracking-[0.14em] text-primary-300 mb-[25px]">
-              <Sparkles size={14} strokeWidth={2.25} />
-              Selamat Datang Kembali
-            </p>
             <h2 className="text-display-lg font-bold leading-[1.0] tracking-tight mb-[33px]">
               Tumbuh kembang anak,
               <br />
@@ -178,7 +171,7 @@ export default function LoginPortal() {
           </div>
 
           <div className="relative text-caption text-white/50">
-            · {new Date().getFullYear()} Posyandu Cibabat
+            {new Date().getFullYear()} Posyandu Cibabat
           </div>
         </aside>
 
@@ -194,7 +187,7 @@ export default function LoginPortal() {
                 <Heart size={18} strokeWidth={2.25} fill="currentColor" fillOpacity={0.25} />
               </span>
               <span className="flex flex-col leading-[1.1]">
-                <span className="text-body-sm font-bold text-deep-slate tracking-tight">
+                <span className="text-heading-sm font-bold text-deep-slate tracking-tight">
                   KMS Digital
                 </span>
                 <span className="text-caption text-graphite">Posyandu Cibabat</span>

@@ -9,6 +9,7 @@ import TourProvider from './features/tour/TourProvider';
 import PWAUpdatePrompt from './components/PWAUpdatePrompt';
 import PWAInstallPrompt from './components/PWAInstallPrompt';
 import OfflineBanner from './components/OfflineBanner';
+import { cssColor } from './utils/cssColor';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -22,13 +23,16 @@ const queryClient = new QueryClient({
   },
 });
 
-const theme = {
-  token: {
-    colorPrimary: '#FF7070',
-    fontFamily: 'Sen, Inter, system-ui, sans-serif',
-    borderRadius: 8,
-  },
-};
+// Dibaca saat render (bukan saat modul dimuat) supaya global.css sudah aktif.
+function buildTheme() {
+  return {
+    token: {
+      colorPrimary: cssColor('--color-primary-500', '#FF7070'),
+      fontFamily: 'Sen, Inter, system-ui, sans-serif',
+      borderRadius: 8,
+    },
+  };
+}
 
 function AppPrompts() {
   const location = useLocation();
@@ -45,6 +49,8 @@ function AppPrompts() {
 }
 
 export default function App() {
+  const theme = React.useMemo(() => buildTheme(), []);
+
   return (
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>

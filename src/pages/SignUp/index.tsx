@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import {
   Heart,
-  Sparkles,
   CheckCircle2,
   Mail,
   KeyRound,
@@ -146,19 +145,16 @@ export default function SignUp() {
         </div>
       )}
 
-      <div className="min-h-screen lg:grid lg:grid-cols-[1fr_1.05fr] bg-faint-fog">
+      <div className="min-h-screen lg:h-screen lg:min-h-0 lg:overflow-hidden lg:grid lg:grid-cols-[1fr_1.05fr] bg-faint-fog">
         {/* Left: Form */}
-        <main className="flex flex-col min-h-screen lg:min-h-0 order-2 lg:order-1">
+        <main className="flex flex-col min-h-screen lg:min-h-0 lg:h-screen lg:overflow-y-auto order-2 lg:order-1 ">
           <header className="lg:hidden flex items-center justify-between px-[17px] py-[17px] border-b border-light-ash bg-white">
             <Link to="/" className="flex items-center gap-[10px]">
-              <span className="flex items-center justify-center w-[36px] h-[36px] rounded-full bg-primary-500 text-white">
-                <Heart size={18} strokeWidth={2.25} fill="currentColor" fillOpacity={0.25} />
-              </span>
               <span className="flex flex-col leading-[1.1]">
                 <span className="text-body-sm font-bold text-deep-slate tracking-tight">
                   KMS Digital
                 </span>
-                <span className="text-caption text-graphite">Posyandu Lebakwangi</span>
+                <span className="text-caption text-graphite">Posyandu Cibabat</span>
               </span>
             </Link>
           </header>
@@ -445,13 +441,13 @@ export default function SignUp() {
         </main>
 
         {/* Right: Brand panel */}
-        <aside className="relative hidden lg:flex flex-col justify-between bg-deep-slate text-white overflow-hidden px-[50px] py-[50px] xl:px-[67px] xl:py-[67px] order-1 lg:order-2">
+        <aside className="relative hidden lg:flex flex-col justify-between lg:h-screen lg:sticky lg:top-0 bg-deep-slate text-white overflow-hidden px-[50px] py-[50px] xl:px-[67px] xl:py-[67px] order-1 lg:order-2">
           <div
             aria-hidden
             className="pointer-events-none absolute inset-0 opacity-[0.08]"
             style={{
               backgroundImage:
-                "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+                "radial-gradient(circle, rgb(var(--color-white)) 1px, transparent 1px)",
               backgroundSize: "22px 22px",
             }}
           />
@@ -460,13 +456,10 @@ export default function SignUp() {
             className="pointer-events-none absolute -top-[120px] -left-[120px] w-[400px] h-[400px] rounded-full bg-primary-500/30 blur-3xl"
           />
 
-          <div className="relative">
+          <div className="relative overflow-auto">
             <Link to="/" className="inline-flex items-center gap-[10px] group">
-              <span className="flex items-center justify-center w-[44px] h-[44px] rounded-full bg-primary-500 text-white transition-transform group-hover:scale-[1.05] duration-150 ease-out-quart">
-                <Heart size={22} strokeWidth={2.25} fill="currentColor" fillOpacity={0.25} />
-              </span>
               <span className="flex flex-col leading-[1.1]">
-                <span className="text-body-sm font-bold tracking-tight">
+                <span className="text-heading-sm font-bold tracking-tight">
                   KMS Digital
                 </span>
                 <span className="text-caption text-white/60">
@@ -477,10 +470,6 @@ export default function SignUp() {
           </div>
 
           <div className="relative max-w-[520px]">
-            <p className="inline-flex items-center gap-[8px] text-caption font-bold uppercase tracking-[0.14em] text-primary-300 mb-[25px]">
-              <Sparkles size={14} strokeWidth={2.25} />
-              Bergabung Hari Ini
-            </p>
             <h2 className="text-display-lg font-bold leading-[1.0] tracking-tight mb-[33px]">
               Mulai perjalanan gizi anak,
               <br />
@@ -506,7 +495,7 @@ export default function SignUp() {
           </div>
 
           <div className="relative text-caption text-white/50">
-            Â· {new Date().getFullYear()} Posyandu Lebakwangi
+            {new Date().getFullYear()} Posyandu Cibabat
           </div>
         </aside>
       </div>

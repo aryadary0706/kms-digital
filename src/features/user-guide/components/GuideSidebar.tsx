@@ -40,7 +40,7 @@ export default function GuideSidebar({ roles = guideContent }: GuideSidebarProps
               <span
                 aria-hidden="true"
                 className="mt-[4px] h-[10px] w-[10px] shrink-0 rounded-full"
-                style={{ backgroundColor: role.accentColor ?? '#1D4ED8' }}
+                style={{ backgroundColor: role.accentColor ?? 'rgb(var(--color-guide-accent-fallback))' }}
               />
               <span className="min-w-0 flex-1">
                 <span className="block text-body-sm font-semibold text-deep-slate">

@@ -80,18 +80,14 @@ export function LandingPage() {
             className="pointer-events-none absolute inset-0 opacity-[0.04]"
             style={{
               backgroundImage:
-                "radial-gradient(circle, #b32e2e 1px, transparent 1px)",
+                "radial-gradient(circle, rgb(var(--color-primary-700)) 1px, transparent 1px)",
               backgroundSize: "24px 24px",
             }}
           />
           <div className="relative max-w-page mx-auto px-[17px] md:px-[25px] pt-[67px] pb-[84px] md:pt-[95px] md:pb-[134px]">
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-[50px] items-center">
               <div>
-                <span className="inline-flex items-center gap-[8px] text-caption font-bold uppercase tracking-[0.14em] text-primary-600 mb-[25px]">
-                  <Sparkles size={14} strokeWidth={2.25} />
-                  KMS Digital - Posyandu Cibabat
-                </span>
-                <h1 className="text-display md:text-display-lg font-bold text-deep-slate leading-[0.98] tracking-tight mb-[25px]">
+                <h1 className="text-display-sm sm:text-display md:text-display-lg font-bold text-deep-slate leading-[0.98] tracking-tight mb-[25px]">
                   Tumbuh kembang anak,{" "}
                   <span className="relative inline-block">
                     <span className="relative z-10">lebih tenang</span>
@@ -104,7 +100,7 @@ export function LandingPage() {
                   dipantau dari{" "}
                   <span className="text-primary-600">genggaman.</span>
                 </h1>
-                <p className="text-body-lg text-graphite mb-[33px] max-w-[560px] leading-relaxed">
+                <p className="text-body-sm sm:text-body-lg text-graphite mb-[33px] max-w-[560px] leading-relaxed">
                   Catat pengukuran balita, akses artikel kesehatan, dan ikuti
                   perkembangan gizi anak bersama kader posyandu desa Anda ·
                   dalam satu aplikasi sederhana.
@@ -188,7 +184,7 @@ export function LandingPage() {
 
         {/* Stats strip */}
         <section className="bg-white border-y border-light-ash">
-          <div className="max-w-page mx-auto px-[17px] md:px-[25px] py-[33px]">
+          <div className="max-w-page mx-auto px-[17px] py-[15px] md:px-[25px] md:py-[33px]">
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-light-ash">
               {STATS.map((s, i) => (
                 <div
@@ -299,7 +295,7 @@ export function LandingPage() {
 
         {/* Features · editorial list */}
         <section className="bg-white border-y border-light-ash">
-          <div className="max-w-page mx-auto px-[17px] md:px-[25px] py-[67px] md:py-[95px]">
+          <div className="max-w-page mx-auto px-[24px] md:px-[25px] py-[67px] md:py-[95px]">
             <div className="max-w-[720px] mb-[50px]">
               <p className="text-caption font-bold uppercase tracking-[0.14em] text-primary-600 mb-[13px]">
                 Yang Anda Dapatkan
@@ -349,7 +345,7 @@ export function LandingPage() {
               className="pointer-events-none absolute inset-0 opacity-[0.06]"
               style={{
                 backgroundImage:
-                  "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+                  "radial-gradient(circle, rgb(var(--color-white)) 1px, transparent 1px)",
                 backgroundSize: "18px 18px",
               }}
             />
@@ -364,12 +360,13 @@ export function LandingPage() {
                   <span className="text-primary-300">siap dibuat.</span>
                 </h2>
               </div>
-              <div className="flex flex-col sm:flex-row gap-[13px] md:shrink-0">
+              <div className="flex flex-row gap-[13px] md:shrink-0">
                 <Link to="/sign-up">
                   <Button
                     variant="primary"
-                    size="lg"
+                    size="md"
                     trailingIcon={<ArrowRight size={20} strokeWidth={2.25} />}
+                    className="text-body-sm"
                   >
                     Daftar Sekarang
                   </Button>
@@ -377,8 +374,8 @@ export function LandingPage() {
                 <Link to="/masuk">
                   <Button
                     variant="ghost"
-                    size="lg"
-                    className="!text-white hover:!bg-white/10"
+                    size="md"
+                    className="!text-white hover:!bg-white/10 text-body-sm"
                   >
                     Sudah punya akun
                   </Button>
@@ -390,23 +387,23 @@ export function LandingPage() {
 
         {/* Footer */}
         <footer className="border-t border-light-ash bg-white">
-          <div className="max-w-page mx-auto px-[17px] md:px-[25px] py-[33px] flex flex-col sm:flex-row items-center justify-between gap-[17px]">
+          <div className="max-w-page mx-auto px-[17px] md:px-[25px] py-[33px] flex flex-row items-center justify-between gap-[17px]">
             <div>
               <p className="text-caption font-bold uppercase tracking-[0.12em] text-primary-600">
                 KMS Digital
               </p>
               <p className="text-caption text-graphite mt-1">
-                · {new Date().getFullYear()} Posyandu Lebakwangi. Seluruh hak cipta dilindungi.
+                · {new Date().getFullYear()} Posyandu Cibabat. Seluruh hak cipta dilindungi.
               </p>
             </div>
-            <nav className="flex items-center gap-[25px] text-body-sm text-graphite">
-              <Link to="/artikel" className="hover:text-deep-slate transition-colors">
+            <nav className="flex items-center gap-[8px] sm:gap-[25px] text-body-sm text-graphite">
+              <Link to="/artikel" className="hover:text-accent transition-colors">
                 Artikel
               </Link>
-              <Link to="/masuk" className="hover:text-deep-slate transition-colors">
+              <Link to="/masuk" className="hover:text-accent transition-colors">
                 Masuk
               </Link>
-              <Link to="/sign-up" className="hover:text-deep-slate transition-colors">
+              <Link to="/sign-up" className="hover:text-accent transition-colors">
                 Daftar
               </Link>
             </nav>
