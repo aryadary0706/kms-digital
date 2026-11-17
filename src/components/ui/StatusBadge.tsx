@@ -7,7 +7,7 @@ import {
 
 const TONE_STYLES = {
   normal:  'bg-success-bg text-success',
-  warning: 'bg-warning-bg text-amber-800',
+  warning: 'bg-warning-bg text-warning-text',
   danger:  'bg-danger-bg text-danger',
   unknown: 'bg-neutral-100 text-neutral-500',
 };

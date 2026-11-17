@@ -18,6 +18,7 @@ import FormInputDataAnak from '../../components/form/FormInputDataAnak';
 import RiwayatCard from './RiwayatCard';
 import ErrorState from '../../components/ui/ErrorState';
 import { printElementToPdf } from '../../utils/printElementToPdf';
+
 const ChartWHO = lazy(() => import('./ChartWHO'));
 
 export default function DetailAnak() {

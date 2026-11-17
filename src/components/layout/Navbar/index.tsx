@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Avatar } from "antd";
-import { Menu, X, LogOut, Heart, ChevronDown, HelpCircle } from "lucide-react";
+import { Menu, X, LogOut, HospitalIcon, ChevronDown, HelpCircle } from "lucide-react";
 import { useSession } from "../../../features/auth/useSession";
 import Button from "../../ui/Button";
 import { useToast } from "../../ui/Toast";
@@ -41,15 +41,12 @@ function roleLabel(role) {
 function BrandMark({ desaName }) {
   return (
     <Link to="/" className="flex items-center gap-[10px] group">
-      <span className="relative flex items-center justify-center w-[40px] h-[40px] rounded-full bg-primary-500 text-white shrink-0 transition-transform duration-150 ease-out-quart group-hover:scale-[1.05]">
-        <Heart size={20} strokeWidth={2.25} fill="currentColor" fillOpacity={0.2} />
-      </span>
       <span className="flex flex-col leading-[1.1]">
         <span className="text-body-sm font-bold text-deep-slate tracking-tight">
           KMS Digital
         </span>
         <span className="text-caption text-graphite">
-          {desaName ? `Posyandu ${desaName}` : "Posyandu Lebakwangi"}
+          {desaName ? `Posyandu ${desaName}` : "Posyandu Cibabat"}
         </span>
       </span>
     </Link>

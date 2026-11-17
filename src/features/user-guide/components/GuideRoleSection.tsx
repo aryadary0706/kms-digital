@@ -14,7 +14,7 @@ function getRoleAnchor(roleId: string) {
 
 export default function GuideRoleSection({ role, position, totalRoles }: GuideRoleSectionProps) {
   const anchorId = getRoleAnchor(role.id);
-  const accent = role.accentColor ?? '#1D4ED8';
+  const accent = role.accentColor ?? 'rgb(var(--color-guide-accent-fallback))';
 
   return (
     <section id={anchorId} className="scroll-mt-[96px] space-y-[17px]">

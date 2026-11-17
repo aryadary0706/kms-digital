@@ -1,7 +1,9 @@
+import { cssColor } from './cssColor';
+
 const DEFAULT_OPT = {
   margin: [12, 12, 12, 12],
   image: { type: 'jpeg', quality: 0.95 },
-  html2canvas: { scale: 2, useCORS: true, backgroundColor: '#ffffff' },
+  html2canvas: { scale: 2, useCORS: true },
   jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
 };
 
@@ -15,6 +17,10 @@ export async function printElementToPdf(
   // react-doctor-disable-next-line -- dynamic import() intentionally code-splits the heavy html2pdf.js lib.
   const mod = await import('html2pdf.js');
   const html2pdf = (mod as any).default ?? mod;
-  const opt = { ...DEFAULT_OPT, filename };
+  const opt = {
+    ...DEFAULT_OPT,
+    html2canvas: { ...DEFAULT_OPT.html2canvas, backgroundColor: cssColor('--color-white', '#ffffff') },
+    filename,
+  };
   await html2pdf().set(opt).from(element).save();
 }
