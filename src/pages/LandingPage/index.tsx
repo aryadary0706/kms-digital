@@ -360,7 +360,7 @@ export function LandingPage() {
                   <span className="text-primary-300">siap dibuat.</span>
                 </h2>
               </div>
-              <div className="flex flex-row gap-[13px] md:shrink-0">
+              <div className="flex flex-col md:flex-row gap-[13px] md:shrink-0">
                 <Link to="/sign-up">
                   <Button
                     variant="primary"
