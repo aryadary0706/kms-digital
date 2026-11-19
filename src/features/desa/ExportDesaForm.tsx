@@ -55,7 +55,7 @@ export default function ExportDesaForm({ posyanduList = EMPTY_POSYANDU_LIST, pri
     }
     try {
       setIsPrinting(true);
-      const filename = `Laporan-Desa-${user?.nama_desa ?? user?.desa_name ?? 'KMS'}-${dayjs().format('YYYY-MM-DD')}.pdf`;
+      const filename = `Laporan-Kelurahan-${user?.nama_desa ?? user?.desa_name ?? 'KMS'}-${dayjs().format('YYYY-MM-DD')}.pdf`;
       await printElementToPdf(printableRef.current, filename);
       toast.success('Laporan PDF berhasil dibuat');
       setIsPrinting(false);
@@ -156,7 +156,7 @@ export default function ExportDesaForm({ posyanduList = EMPTY_POSYANDU_LIST, pri
                 Cetak laporan PDF
               </p>
               <p className="text-caption text-graphite mt-1">
-                Unduh rekap statistik gizi desa dalam format PDF siap cetak.
+                Unduh rekap statistik gizi kelurahan dalam format PDF siap cetak.
               </p>
             </div>
             <Button

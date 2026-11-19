@@ -8,7 +8,7 @@ export default function AdminStatsGrid({ stats, loading }) {
 
   const items = [
     {
-      label: 'Total Desa',
+      label: 'Total Kelurahan',
       value: stats?.desa ?? null,
       Icon: Home,
       href: '/admin/dashboard/desa',

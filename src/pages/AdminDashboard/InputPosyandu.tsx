@@ -237,7 +237,7 @@ export default function InputPosyandu() {
       <PageHeader
         eyebrow="Data Master"
         title="Kelola Posyandu"
-        subtitle="Daftar posyandu yang terdaftar di setiap desa."
+        subtitle="Daftar posyandu yang terdaftar di setiap kelurahan."
         dataTourId="admin-posyandu-header"
         action={
           <Button
@@ -288,15 +288,15 @@ export default function InputPosyandu() {
           layout="vertical"
         >
           <Form.Item
-            label={<span className="text-body-sm font-medium text-deep-slate">Pilih Desa</span>}
+            label={<span className="text-body-sm font-medium text-deep-slate">Pilih kelurahan</span>}
             name="desa"
-            rules={[{ required: true, message: "Desa masih kosong" }]}
+            rules={[{ required: true, message: "kelurahan masih kosong" }]}
           >
             <Select
               listHeight={200}
               optionFilterProp="children"
               showSearch
-              placeholder="Pilih Desa"
+              placeholder="Pilih kelurahan"
               disabled={desaLoading}
               className="h-[52px]"
             >
