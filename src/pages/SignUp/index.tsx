@@ -361,13 +361,13 @@ export default function SignUp() {
                     name="desa"
                     label={
                       <span className="text-body-sm font-semibold text-deep-slate">
-                        Desa
+                        kelurahan
                       </span>
                     }
-                    rules={[{ required: true, message: "Pilih desa" }]}
+                    rules={[{ required: true, message: "Pilih kelurahan" }]}
                   >
                     <Select
-                      placeholder="Pilih desa"
+                      placeholder="Pilih kelurahan"
                       allowClear
                       disabled={desaLoading}
                       className="h-[52px]"

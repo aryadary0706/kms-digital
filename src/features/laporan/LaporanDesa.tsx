@@ -257,7 +257,7 @@ const LaporanDesa = function LaporanDesa({ ref }: { ref?: Ref<HTMLDivElement> })
       <Card>
         <div className="flex items-center gap-[13px] text-body-sm text-graphite">
           <AlertTriangle size={20} strokeWidth={2} className="text-warning" />
-          Data desa tidak tersedia.
+          Data kelurahan tidak tersedia.
         </div>
       </Card>
     );
@@ -296,7 +296,7 @@ const LaporanDesa = function LaporanDesa({ ref }: { ref?: Ref<HTMLDivElement> })
         <Card>
           <div className="flex items-center gap-[13px] text-body-sm text-warning">
             <AlertTriangle size={18} strokeWidth={2} />
-            Sebagian data desa gagal dimuat, jadi rekap memakai ringkasan yang tersedia.
+            Sebagian data kelurahan gagal dimuat, jadi rekap memakai ringkasan yang tersedia.
           </div>
         </Card>
       )}
@@ -309,7 +309,7 @@ const LaporanDesa = function LaporanDesa({ ref }: { ref?: Ref<HTMLDivElement> })
                 <div className="flex items-start gap-[13px]">
                   <AlertTriangle size={18} strokeWidth={2} className="mt-[2px] shrink-0" />
                   <span>
-                    Ada {agg.tanpaPosyandu} balita tanpa posyandu di data desa. Data ini tidak ikut masuk rekap per-posyandu.
+                    Ada {agg.tanpaPosyandu} balita tanpa posyandu di data kelurahan. Data ini tidak ikut masuk rekap per-posyandu.
                   </span>
                 </div>
                 {agg.tanpaPosyanduList.length > 0 && (
@@ -328,7 +328,7 @@ const LaporanDesa = function LaporanDesa({ ref }: { ref?: Ref<HTMLDivElement> })
                 <div className="flex items-start gap-[13px]">
                   <AlertTriangle size={18} strokeWidth={2} className="mt-[2px] shrink-0" />
                   <span>
-                    Ada {agg.posyanduTidakDikenal} balita dengan posyandu yang tidak dikenal di data desa. Mereka tetap dihitung, tetapi posyandunya perlu diperiksa.
+                    Ada {agg.posyanduTidakDikenal} balita dengan posyandu yang tidak dikenal di data kelurahan. Mereka tetap dihitung, tetapi posyandunya perlu diperiksa.
                   </span>
                 </div>
                 {agg.posyanduTidakDikenalList.length > 0 && (
@@ -361,7 +361,7 @@ const LaporanDesa = function LaporanDesa({ ref }: { ref?: Ref<HTMLDivElement> })
         <Card>
           <div className="flex items-center gap-[13px] text-body-sm text-success">
             <CheckCircle2 size={18} strokeWidth={2} />
-            Data rekap desa sudah lengkap.
+            Data rekap kelurahan sudah lengkap.
           </div>
         </Card>
       )}

@@ -67,10 +67,10 @@ export default function RegisterKaderPosyandu() {
         username: values.username,
         email: values.email || undefined,
         password: values.password,
+        alamat: values.alamat,
         id_desa: values.desa,
         id_posyandu: values.posyandu,
         status: values.status || false,
-        role: "KADER_POSYANDU",
       }),
     onSuccess: () => {
       toast.success("Register Berhasil");
@@ -88,6 +88,7 @@ export default function RegisterKaderPosyandu() {
         username: values.username,
         email: values.email || undefined,
         password: values.password || undefined,
+        alamat: values.alamat,
         id_desa: values.desa,
         id_posyandu: values.posyandu,
         status: values.status,
@@ -105,6 +106,7 @@ export default function RegisterKaderPosyandu() {
                     nama: values.nama,
                     username: values.username,
                     email: values.email || undefined,
+                    alamat: values.alamat,
                     status: values.status,
                     desa: values.desa
                       ? dataDesa?.find((d) => d.id === values.desa) ?? item.desa
@@ -196,6 +198,7 @@ export default function RegisterKaderPosyandu() {
       nama: record.nama,
       username: record.username,
       email: record.email,
+      alamat: record.alamat,
       desa: record.desa?.id,
       posyandu: record.posyandu?.id,
       status: normalizeStatus(record.status),
@@ -229,7 +232,7 @@ export default function RegisterKaderPosyandu() {
     { accessorKey: "email", header: "Email", enableSorting: true },
     {
       id: "desa",
-      header: "Desa",
+      header: "Kelurahan",
       accessorFn: (row) => row.desa?.name ?? "N/A",
       enableSorting: true,
     },
@@ -324,7 +327,7 @@ export default function RegisterKaderPosyandu() {
       <PageHeader
         eyebrow="Akun Pengguna"
         title="Kelola Kader Posyandu"
-        subtitle="Daftar kader yang membantu operasional posyandu di desa."
+        subtitle="Daftar kader yang membantu operasional posyandu di kelurahan."
         dataTourId="admin-kader-header"
         action={
           <Button
@@ -468,15 +471,23 @@ export default function RegisterKaderPosyandu() {
           </Form.Item>
 
           <Form.Item
+            label={<span className="text-body-sm font-medium text-deep-slate">Alamat</span>}
+            name="alamat"
+            rules={[{ required: true, message: "Alamat masih kosong" }]}
+          >
+            <Input.TextArea placeholder="Alamat lengkap" rows={3} className="text-base" />
+          </Form.Item>
+
+          <Form.Item
             name="desa"
-            label={<span className="text-body-sm font-medium text-deep-slate">Desa</span>}
-            rules={[{ required: true, message: "Desa masih kosong" }]}
+            label={<span className="text-body-sm font-medium text-deep-slate">Kelurahan</span>}
+            rules={[{ required: true, message: "Kelurahan masih kosong" }]}
           >
             <Select
               listHeight={200}
               optionFilterProp="children"
               showSearch
-              placeholder="Pilih Desa"
+              placeholder="Pilih Kelurahan"
               disabled={desaLoading}
               className="h-[52px]"
             >

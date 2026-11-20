@@ -139,7 +139,7 @@ export default function ModePosyandu() {
       />
 
       <div className="max-w-[720px] mx-auto px-[17px] md:px-[25px] py-[25px] space-y-[25px]">
-        <div className="space-y-[13px]">
+        <div className="space-y-[35px]">
           <div className="relative" data-tour-id="kader-search">
             <input
               type="search"

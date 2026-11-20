@@ -35,7 +35,7 @@ export default function BerandaDesa() {
     <div className="min-h-screen bg-faint-fog">
       <Navbar isLogin />
       <PageHeader
-        title={`Desa ${user?.nama_desa ?? user?.desa_name ?? ''}`}
+        title={`Kelurahan ${user?.nama_desa ?? user?.desa_name ?? ''}`}
         eyebrow="Pemerintah Desa"
         subtitle="Rekap gizi balita dan kelola acara posyandu."
         dataTourId="desa-header"

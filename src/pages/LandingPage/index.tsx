@@ -36,8 +36,8 @@ const ROLES = [
   },
   {
     Icon: Building2,
-    title: "Pemerintah Desa",
-    desc: "Lihat rekap gizi se-desa, unduh laporan CSV dan PDF untuk rapat bulanan.",
+    title: "kelurahan",
+    desc: "Lihat rekap gizi se-kelurahan, unduh laporan CSV dan PDF untuk rapat bulanan.",
   },
 ];
 
@@ -45,7 +45,7 @@ const FEATURES = [
   {
     Icon: BookOpen,
     title: "Artikel kesehatan terkurasi",
-    desc: "Bacaan singkat tentang gizi, imunisasi, dan tumbuh kembang balita, ditulis oleh tenaga kesehatan desa.",
+    desc: "Bacaan singkat tentang gizi, imunisasi, dan tumbuh kembang balita, ditulis oleh tenaga kesehatan kelurahan.",
   },
   {
     Icon: BarChart3,
@@ -60,7 +60,7 @@ const FEATURES = [
 ];
 
 const STATS = [
-  { value: "1", label: "Desa Posyandu", eyebrow: "Lebakwangi" },
+  { value: "1", label: "kelurahan Posyandu", eyebrow: "Lebakwangi" },
   { value: "4", label: "Peran pengguna", eyebrow: "Terintegrasi" },
   { value: "100%", label: "Berbahasa Indonesia", eyebrow: "Ramah Kader" },
 ];
@@ -102,7 +102,7 @@ export function LandingPage() {
                 </h1>
                 <p className="text-body-sm sm:text-body-lg text-graphite mb-[33px] max-w-[560px] leading-relaxed">
                   Catat pengukuran balita, akses artikel kesehatan, dan ikuti
-                  perkembangan gizi anak bersama kader posyandu desa Anda ·
+                  perkembangan gizi anak bersama kader posyandu kelurahan Anda ·
                   dalam satu aplikasi sederhana.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-[13px] max-w-[420px]">
@@ -223,7 +223,7 @@ export function LandingPage() {
               </h2>
               <p className="text-body-lg text-graphite leading-relaxed max-w-[460px]">
                 Tonton perkenalan singkat tentang KMS Digital dan bagaimana
-                aplikasi ini membantu memantau gizi balita di desa.
+                aplikasi ini membantu memantau gizi balita di kelurahan.
               </p>
             </div>
             <div className="relative">
@@ -261,8 +261,8 @@ export function LandingPage() {
             </div>
             <p className="text-body-lg text-graphite leading-relaxed md:pt-[25px]">
               KMS Digital dirancang untuk semua orang yang terlibat dalam
-              perjalanan gizi balita di desa · orang tua, kader, bidan, dan
-              pemerintah desa. Satu akun, sesuai peran.
+              perjalanan gizi balita di kelurahan · orang tua, kader, bidan, dan
+              pemerintah kelurahan. Satu akun, sesuai peran.
             </p>
           </div>
 

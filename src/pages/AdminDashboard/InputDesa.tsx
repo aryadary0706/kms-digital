@@ -41,10 +41,10 @@ export default function InputDesa() {
       if (ctx?.previous !== undefined) {
         queryClient.setQueryData(qk.desa.list, ctx.previous);
       }
-      toast.error(err?.message ?? "Gagal menghapus desa");
+      toast.error(err?.message ?? "Gagal menghapus kelurahan");
     },
     onSuccess: () => {
-      toast.success("Desa berhasil dihapus");
+      toast.success("Kelurahan berhasil dihapus");
     },
     onSettled: () => {
       queryClient.invalidateQueries({ queryKey: qk.desa.all });
@@ -59,7 +59,7 @@ export default function InputDesa() {
         password_confirmation: values.password_confirmation,
       }),
     onSuccess: () => {
-      toast.success("Desa dan akun berhasil disimpan");
+      toast.success("kelurahan dan akun berhasil disimpan");
       queryClient.invalidateQueries({ queryKey: qk.desa.all });
       form.resetFields();
       setIsModalVisible(false);
@@ -69,7 +69,7 @@ export default function InputDesa() {
 
   const rows = dataSource ?? [];
   const stats = [
-    { label: "Total Desa", value: rows.length },
+    { label: "Total kelurahan", value: rows.length },
     {
       label: "Baru Bulan Ini",
       value: rows.filter((d) => isThisMonth(d.created_at)).length,
@@ -79,9 +79,9 @@ export default function InputDesa() {
 
   const showDeleteConfirm = (id, name) => {
     confirm({
-      title: "Hapus desa?",
+      title: "Hapus kelurahan?",
       icon: <AlertTriangle size={20} className="text-danger" />,
-      content: `Desa '` + name + `' akan dihapus.`,
+      content: `kelurahan '` + name + `' akan dihapus.`,
       okText: "Ya, Hapus",
       cancelText: "Batal",
       okButtonProps: { danger: true },
@@ -90,7 +90,7 @@ export default function InputDesa() {
   };
 
   const columns = [
-    { accessorKey: "name", header: "Nama Desa", enableSorting: true },
+    { accessorKey: "name", header: "Nama kelurahan", enableSorting: true },
     {
       id: "action",
       header: "Aksi",
@@ -120,8 +120,8 @@ export default function InputDesa() {
       {toast.contextHolder}
       <PageHeader
         eyebrow="Data Master"
-        title="Kelola Desa"
-        subtitle="Daftar desa yang terdaftar dalam sistem posyandu."
+        title="Kelola kelurahan"
+        subtitle="Daftar kelurahan yang terdaftar dalam sistem posyandu."
         dataTourId="admin-desa-header"
         action={
           <Button
@@ -132,7 +132,7 @@ export default function InputDesa() {
             onClick={() => setIsModalVisible(true)}
             disabled={createDesaMutation.isPending}
           >
-            Tambah Desa
+            Tambah kelurahan
           </Button>
         }
         stats={<InlineStatBar items={stats} loading={isLoading} />}
@@ -168,11 +168,11 @@ export default function InputDesa() {
           layout="vertical"
         >
           <Form.Item
-            label={<span className="text-body-sm font-medium text-deep-slate">Nama Desa</span>}
+            label={<span className="text-body-sm font-medium text-deep-slate">Nama kelurahan</span>}
             name="name"
-            rules={[{ required: true, message: "Nama Desa masih kosong" }]}
+            rules={[{ required: true, message: "Nama kelurahan masih kosong" }]}
           >
-            <Input className="h-[52px] text-base" placeholder="Masukkan nama desa" />
+            <Input className="h-[52px] text-base" placeholder="Masukkan nama kelurahan" />
           </Form.Item>
           <Form.Item
             label={<span className="text-body-sm font-medium text-deep-slate">Kata Sandi</span>}

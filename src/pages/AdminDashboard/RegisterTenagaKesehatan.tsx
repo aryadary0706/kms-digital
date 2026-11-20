@@ -257,7 +257,7 @@ export default function RegisterTenagaKesehatan() {
       <PageHeader
         eyebrow="Akun Pengguna"
         title="Kelola Tenaga Kesehatan"
-        subtitle="Daftar bidan dan tenaga kesehatan yang terdaftar di tiap desa."
+        subtitle="Daftar bidan dan tenaga kesehatan yang terdaftar di tiap kelurahan."
         dataTourId="admin-tenkes-header"
         action={
           <Button
@@ -379,8 +379,8 @@ export default function RegisterTenagaKesehatan() {
           </Form.Item>
           <Form.Item
             name="desa"
-            label={<span className="text-body-sm font-medium text-deep-slate">Desa</span>}
-            rules={[{ required: true, message: "Desa masih kosong" }]}
+            label={<span className="text-body-sm font-medium text-deep-slate">kelurahan</span>}
+            rules={[{ required: true, message: "kelurahan masih kosong" }]}
           >
             <Select
               listHeight={200}
