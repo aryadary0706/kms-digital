@@ -92,7 +92,6 @@ export default function RegisterKaderPosyandu() {
         id_desa: values.desa,
         id_posyandu: values.posyandu,
         status: values.status,
-        role: "KADER_POSYANDU",
       }),
     onMutate: async ({ id, values }) => {
       await queryClient.cancelQueries({ queryKey: qk.kader.list });
