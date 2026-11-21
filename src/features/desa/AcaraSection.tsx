@@ -77,7 +77,7 @@ export default function AcaraSection() {
             label={<span className="text-body-sm font-medium text-deep-slate">Deskripsi</span>}
             name="deskripsi"
           >
-            <Input.TextArea rows={2} placeholder="Detail tambahan (opsional)" />
+            <Input.TextArea rows={2} placeholder="Detail tambahan" />
           </Form.Item>
           <Form.Item
             label={<span className="text-body-sm font-medium text-deep-slate">Tanggal</span>}

@@ -5,8 +5,8 @@ export interface Pengukuran {
   berat: number;
   tinggi: number;
   lingkar_kepala: number;
-  lila?: number | null;
-  catatan?: string | null;
+  lingkar_lengan?: number | null;
+  note?: string | null;
   created_at?: string;
   updated_at?: string;
 }

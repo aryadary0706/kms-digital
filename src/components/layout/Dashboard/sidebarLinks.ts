@@ -17,7 +17,7 @@ export const sidebarlink = [
   {
     title: 'Data Master',
     links: [
-      { title: 'Desa', path: 'desa', icon: Home },
+      { title: 'Kelurahan', path: 'desa', icon: Home },
       { title: 'Posyandu', path: 'posyandu', icon: Building2 },
       { title: 'Artikel', path: 'artikel', icon: Newspaper },
     ],

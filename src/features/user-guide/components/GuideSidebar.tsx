@@ -50,7 +50,7 @@ export default function GuideSidebar({ roles = guideContent }: GuideSidebarProps
                   className="mt-1 block text-caption text-graphite leading-relaxed"
                   id={`role-nav-${role.id.toLowerCase()}-meta`}
                 >
-                  {role.sections.length} bagian · {role.summary}
+                  {role.sections.length} Fitur
                 </span>
               </span>
             </a>

@@ -33,9 +33,9 @@ const ROLES = [
   },
   {
     key: 'DESA',
-    label: 'Pemerintah Desa',
+    label: 'Pemerintah Kelurahan',
     Icon: Building2,
-    desc: 'Rekap gizi se-desa',
+    desc: 'Rekap gizi se-kelurahan',
   },
   {
     key: 'ORANG_TUA',

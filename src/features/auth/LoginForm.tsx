@@ -7,7 +7,7 @@ const ROLE_LABELS = {
   ORANG_TUA: "Orang Tua",
   KADER_POSYANDU: "Kader Posyandu",
   TENAGA_KESEHATAN: "Tenaga Kesehatan",
-  DESA: "Pemerintah Desa",
+  DESA: "Pemerintah Kelurahan",
   ADMIN: "Admin",
 };
 

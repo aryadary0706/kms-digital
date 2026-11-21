@@ -139,7 +139,7 @@ export default function SignUp() {
       {(authLoading || desaLoading || posyanduLoading) && (
         <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 bg-white/95 px-[25px] py-[21px] rounded-default border border-light-ash shadow-card">
           <div className="flex items-center gap-[13px]">
-            <Spin size="default" />
+            <Spin size="medium" />
             <span className="text-body-sm text-graphite">Memuat...</span>
           </div>
         </div>

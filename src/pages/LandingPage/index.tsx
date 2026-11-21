@@ -60,7 +60,7 @@ const FEATURES = [
 ];
 
 const STATS = [
-  { value: "1", label: "kelurahan Posyandu", eyebrow: "Lebakwangi" },
+  { value: "1", label: "kelurahan Posyandu", eyebrow: "Cibabat" },
   { value: "4", label: "Peran pengguna", eyebrow: "Terintegrasi" },
   { value: "100%", label: "Berbahasa Indonesia", eyebrow: "Ramah Kader" },
 ];

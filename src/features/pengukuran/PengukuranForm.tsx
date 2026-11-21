@@ -20,7 +20,7 @@ interface PrefillFrom {
   berat?: number | string;
   tinggi?: number | string;
   lingkar_kepala?: number | string;
-  lila?: number | string | null;
+  lingkar_lengan?: number | string | null;
 }
 
 interface PengukuranFormProps {
@@ -35,7 +35,7 @@ const DEFAULTS = {
   berat: 8.0,
   tinggi: 70.0,
   lingkarKepala: 45.0,
-  lila: 13.0,
+  lingkar_lengan: 13.0,
   catatan: '',
 };
 
@@ -51,7 +51,7 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
   const [berat, setBerat] = useState(DEFAULTS.berat);
   const [tinggi, setTinggi] = useState(DEFAULTS.tinggi);
   const [lingkarKepala, setLingkarKepala] = useState(DEFAULTS.lingkarKepala);
-  const [lila, setLila] = useState(DEFAULTS.lila);
+  const [lingkarLengan, setLingkarLengan] = useState(DEFAULTS.lingkar_lengan);
   const [catatan, setCatatan] = useState(DEFAULTS.catatan);
   const [prevOpen, setPrevOpen] = useState(false);
 
@@ -64,14 +64,14 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
         setBerat(Number(source.berat) || DEFAULTS.berat);
         setTinggi(Number(source.tinggi) || DEFAULTS.tinggi);
         setLingkarKepala(Number(source.lingkar_kepala) || DEFAULTS.lingkarKepala);
-        setLila(Number(source.lila) || DEFAULTS.lila);
-        setCatatan(existing?.catatan ?? '');
+        setLingkarLengan(Number(source.lingkar_lengan) || DEFAULTS.lingkar_lengan);
+        setCatatan(existing?.note ?? '');
       } else {
         setTanggal(dayjs());
         setBerat(DEFAULTS.berat);
         setTinggi(DEFAULTS.tinggi);
         setLingkarKepala(DEFAULTS.lingkarKepala);
-        setLila(DEFAULTS.lila);
+        setLingkarLengan(DEFAULTS.lingkar_lengan);
         setCatatan(DEFAULTS.catatan);
       }
     }
@@ -102,8 +102,8 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
       berat,
       tinggi,
       lingkar_kepala: lingkarKepala,
-      lila: showLila ? lila : null,
-      catatan: catatan?.trim() || null,
+      lingkar_lengan: showLila ? lingkarLengan : null,
+      note: catatan?.trim() || null,
       date: tanggal.format('YYYY-MM-DD'),
       z_score_berat: zScores?.zScoreBB ?? 0,
       z_score_tinggi: zScores?.zScoreTB ?? 0,
@@ -203,8 +203,8 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
               min={5}
               max={20}
               step={0.1}
-              value={lila}
-              onChange={setLila}
+              value={lingkarLengan}
+              onChange={setLingkarLengan}
               unit="cm"
             />
           )}

@@ -33,7 +33,7 @@ function roleLabel(role) {
   if (role === "ORANG_TUA") return "Orang Tua";
   if (role === "KADER_POSYANDU") return "Kader Posyandu";
   if (role === "TENAGA_KESEHATAN") return "Tenaga Kesehatan";
-  if (role === "DESA") return "Pemerintah Desa";
+  if (role === "DESA") return "Pemerintah Kelurahan";
   if (role === "ADMIN") return "Admin";
   return role;
 }

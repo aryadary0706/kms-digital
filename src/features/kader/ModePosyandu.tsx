@@ -98,7 +98,7 @@ export default function ModePosyandu() {
             berat: Number(latest.berat),
             tinggi: Number(latest.tinggi),
             lingkar_kepala: Number(latest.lingkar_kepala),
-            lila: latest.lila != null ? Number(latest.lila) : null,
+            lingkar_lengan: latest.lingkar_lengan != null ? Number(latest.lingkar_lengan) : null,
           }
         : null
     );

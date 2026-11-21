@@ -11,8 +11,8 @@ interface CreatePengukuranPayload {
   berat: number;
   tinggi: number;
   lingkar_kepala: number;
-  lila?: number | null;
-  catatan?: string | null;
+  lingkar_lengan?: number | null;
+  note?: string | null;
 }
 
 interface UpdatePengukuranParams {
