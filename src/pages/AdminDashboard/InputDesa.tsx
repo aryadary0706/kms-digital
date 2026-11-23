@@ -53,8 +53,8 @@ export default function InputDesa() {
 
   const createDesaMutation = useMutation({
     mutationFn: (values: { name: string; password: string; password_confirmation: string }) =>
-      desaApi.create({
-        name: values.name,
+      desaApi.register({
+        nama: values.name,
         password: values.password,
         password_confirmation: values.password_confirmation,
       }),

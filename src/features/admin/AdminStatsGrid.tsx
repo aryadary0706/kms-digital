@@ -3,8 +3,7 @@ import { Home, Building2, Users, Newspaper } from 'lucide-react';
 import StatCard from '../../components/ui/StatCard';
 
 export default function AdminStatsGrid({ stats, loading }) {
-  const totalPengguna =
-    (stats?.kader ?? 0) + (stats?.nakes ?? 0) + (stats?.ortu ?? 0);
+  const totalPengguna = (stats?.kader ?? 0) + (stats?.nakes ?? 0);
 
   const items = [
     {
@@ -27,7 +26,6 @@ export default function AdminStatsGrid({ stats, loading }) {
       breakdown: [
         { label: 'Kader', value: stats?.kader },
         { label: 'Tenkes', value: stats?.nakes },
-        { label: 'Ortu', value: stats?.ortu },
       ],
     },
     {

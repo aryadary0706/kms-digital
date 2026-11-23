@@ -4,7 +4,6 @@ import {
   Building2,
   UserCog,
   Stethoscope,
-  Heart,
   Newspaper,
   Inbox,
   AlertTriangle,
@@ -17,7 +16,6 @@ const ICON_MAP = {
   posyandu: <Building2 size={18} strokeWidth={1.75} />,
   kader:    <UserCog size={18} strokeWidth={1.75} />,
   nakes:    <Stethoscope size={18} strokeWidth={1.75} />,
-  ortu:     <Heart size={18} strokeWidth={1.75} />,
   artikel:  <Newspaper size={18} strokeWidth={1.75} />,
 };
 

@@ -4,7 +4,6 @@ import { desaApi } from '../../api/desa.api';
 import { posyanduApi } from '../../api/posyandu.api';
 import { kaderApi } from '../../api/kader.api';
 import { nakesApi } from '../../api/nakes.api';
-import { ortuApi } from '../../api/ortu.api';
 import { artikelApi } from '../../api/artikel.api';
 import { qk } from '../../queries/keys';
 
@@ -50,16 +49,6 @@ function activityFromNakes(items = []) {
     href: '/admin/dashboard/tenaga-kesehatan',
   }));
 }
-function activityFromOrtu(items = []) {
-  return items.map((o) => ({
-    id: `ortu-${o.id}`,
-    type: 'ortu',
-    title: `Orang Tua ${o.nama} mendaftar`,
-    subtitle: null,
-    timestamp: o.created_at,
-    href: '/admin/dashboard',
-  }));
-}
 function activityFromArtikel(items = []) {
   return items.map((a) => ({
     id: `artikel-${a.id}`,
@@ -72,14 +61,13 @@ function activityFromArtikel(items = []) {
 }
 
 function mergeActivity(results, days = 7, limit = 10) {
-  const [desa, posyandu, kader, nakes, ortu, artikel] = results;
+  const [desa, posyandu, kader, nakes, artikel] = results;
 
   return [
     ...activityFromDesa(desa.data ?? []),
     ...activityFromPosyandu(posyandu.data ?? []),
     ...activityFromKader(kader.data ?? []),
     ...activityFromNakes(nakes.data ?? []),
-    ...activityFromOrtu(ortu.data ?? []),
     ...activityFromArtikel(artikel.data ?? []),
   ]
     .filter((x) => {
@@ -98,7 +86,6 @@ export function useAdminDashboardData() {
       { queryKey: qk.posyandu.list, queryFn: async () => (await posyanduApi.list())?.data ?? [], staleTime: STALE },
       { queryKey: qk.kader.list,    queryFn: async () => (await kaderApi.list())?.data    ?? [], staleTime: STALE },
       { queryKey: qk.nakes.list,    queryFn: async () => (await nakesApi.list())?.data    ?? [], staleTime: STALE },
-      { queryKey: qk.orangTua.list, queryFn: async () => (await ortuApi.list())?.data     ?? [], staleTime: STALE },
       { queryKey: qk.artikel.list,  queryFn: async () => (await artikelApi.list())?.data  ?? [], staleTime: STALE },
     ],
     combine: (results) => ({
@@ -109,8 +96,7 @@ export function useAdminDashboardData() {
         posyandu: results[1].data?.length ?? null,
         kader:    results[2].data?.length ?? null,
         nakes:    results[3].data?.length ?? null,
-        ortu:     results[4].data?.length ?? null,
-        artikel:  results[5].data?.length ?? null,
+        artikel:  results[4].data?.length ?? null,
       },
       activity: mergeActivity(results),
     }),
