@@ -59,6 +59,7 @@ export default function FormOrangTua({
             {
               email: values.email || undefined,
               password: values.password,
+              password_confirmation: values.password_confirmation,
               nama: values.nama,
               username: values.username,
               alamat: values.alamat,
@@ -82,6 +83,7 @@ export default function FormOrangTua({
               payload: {
                 email: values.email || undefined,
                 password: values.password || undefined,
+                password_confirmation: values.password_confirmation || undefined,
                 nama: values.nama,
                 username: values.username,
                 alamat: values.alamat,
@@ -167,17 +169,19 @@ export default function FormOrangTua({
             />
           </Form.Item>
 
-          {!isEdit && (
-            <Form.Item
+          <Form.Item
               label={
                 <span className="text-body-sm font-medium text-deep-slate">
                   Konfirmasi Kata Sandi
                 </span>
               }
-              name="confirm"
+              name="password_confirmation"
               dependencies={['password']}
               rules={[
-                { required: true, message: 'Konfirmasi kata sandi' },
+                ({ getFieldValue }) => ({
+                  required: !isEdit || !!getFieldValue('password'),
+                  message: 'Konfirmasi kata sandi',
+                }),
                 ({ getFieldValue }) => ({
                   validator(_, value) {
                     if (!value || getFieldValue('password') === value) return Promise.resolve();
@@ -188,7 +192,6 @@ export default function FormOrangTua({
             >
               <Input.Password placeholder="Ulangi kata sandi" className="h-[52px] text-base" />
             </Form.Item>
-          )}
 
           <Form.Item
             label={<span className="text-body-sm font-medium text-deep-slate">Alamat</span>}

@@ -19,6 +19,7 @@ interface OrangTua {
 interface CreateOrangTuaPayload {
   email: string;
   password: string;
+  password_confirmation: string;
   nama: string;
   username?: string;
   alamat: string;

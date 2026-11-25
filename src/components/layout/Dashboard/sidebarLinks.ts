@@ -5,6 +5,7 @@ import {
   Newspaper,
   UserCog,
   Stethoscope,
+  BuildingIcon
 } from 'lucide-react';
 
 export const sidebarlink = [
@@ -17,7 +18,7 @@ export const sidebarlink = [
   {
     title: 'Data Master',
     links: [
-      { title: 'Kelurahan', path: 'desa', icon: Home },
+      //{ title: 'Nama Kelurahan', path: 'desa', icon: Home },
       { title: 'Posyandu', path: 'posyandu', icon: Building2 },
       { title: 'Artikel', path: 'artikel', icon: Newspaper },
     ],
@@ -27,6 +28,7 @@ export const sidebarlink = [
     links: [
       { title: 'Kader Posyandu', path: 'kader-posyandu', icon: UserCog },
       { title: 'Tenaga Kesehatan', path: 'tenaga-kesehatan', icon: Stethoscope },
+      { title: 'Petugas Kelurahan', path: 'petugas-kelurahan', icon: BuildingIcon },
     ],
   },
 ];

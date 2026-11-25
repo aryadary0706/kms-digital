@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useToast } from '../../components/ui/Toast';
-import { ArrowLeft, AlertTriangle, Plus, Pencil, Trash2 } from 'lucide-react';
+import { ArrowLeft, AlertTriangle, Pencil, Trash2 } from 'lucide-react';
 import PageHeader from '../../components/ui/PageHeader';
 import Button from '../../components/ui/Button';
 import DataTable from '../../components/ui/DataTable';
@@ -17,10 +17,12 @@ import { useSession } from '../auth/useSession';
 import { useConfirmDialog } from '../../hooks/useConfirmDialog';
 import PendingApprovalSection from './PendingApprovalSection';
 import FormOrangTua from './FormOrangTua';
+import SeparatedDaftarOrangTuaForm from './SeparatedDaftarOrangTuaForm';
 
 const TABS = [
   { key: 'pending', label: 'Menunggu Persetujuan' },
-  { key: 'aktif', label: 'Daftar Aktif' },
+  { key: 'aktif', label: 'Daftar Orang Tua' },
+  { key: 'registrasi', label: 'Tambah' },
 ];
 
 const normalizeStatus = (status) => {
@@ -36,7 +38,6 @@ export default function AkunOrangTuaPage() {
   const toast = useToast();
   const confirm = useConfirmDialog();
   const [formOpen, setFormOpen] = useState(false);
-  const [formMode, setFormMode] = useState('add');
   const [selected, setSelected] = useState(null);
 
   const { data: pendingOT } = usePendingOrangTua(true);
@@ -68,14 +69,7 @@ export default function AkunOrangTuaPage() {
     });
   };
 
-  const openTambah = () => {
-    setFormMode('add');
-    setSelected(null);
-    setFormOpen(true);
-  };
-
   const openEdit = (record) => {
-    setFormMode('edit');
     setSelected(record);
     setFormOpen(true);
   };
@@ -156,7 +150,11 @@ export default function AkunOrangTuaPage() {
           {TABS.map((t) => {
             const active = t.key === tab;
             const count =
-              t.key === 'pending' ? pendingCount : aktifList.length;
+              t.key === 'pending'
+                ? pendingCount
+                : t.key === 'aktif'
+                  ? aktifList.length
+                  : null;
             return (
               <button
                 key={t.key}
@@ -169,15 +167,17 @@ export default function AkunOrangTuaPage() {
                 }`}
               >
                 {t.label}
-                <span
-                  className={`ml-[8px] px-[8px] py-[1px] rounded-full text-caption tabular-nums ${
-                    active
-                      ? 'bg-primary-50 text-primary-600'
-                      : 'bg-polar-mist text-graphite'
-                  }`}
-                >
-                  {count}
-                </span>
+                {count !== null && (
+                  <span
+                    className={`ml-[8px] px-[8px] py-[1px] rounded-full text-caption tabular-nums ${
+                      active
+                        ? 'bg-primary-50 text-primary-600'
+                        : 'bg-polar-mist text-graphite'
+                    }`}
+                  >
+                    {count}
+                  </span>
+                )}
               </button>
             );
           })}
@@ -191,14 +191,6 @@ export default function AkunOrangTuaPage() {
               <h2 className="text-heading font-semibold text-deep-slate">
                 Daftar Orang Tua Aktif
               </h2>
-              <Button
-                variant="primary"
-                size="md"
-                leadingIcon={<Plus size={18} strokeWidth={2} />}
-                onClick={openTambah}
-              >
-                Tambah Orang Tua
-              </Button>
             </div>
             <DataTable
               columns={columns}
@@ -206,9 +198,16 @@ export default function AkunOrangTuaPage() {
               loading={isLoading || deleteMutation.isPending}
               rowKey="id"
               searchPlaceholder="Cari orang tua..."
-              emptyText="Belum ada orang tua aktif. Klik 'Tambah Orang Tua' untuk mendaftar pertama."
+              emptyText="Belum ada orang tua aktif. Buka tab 'Tambah' untuk mendaftarkan orang tua."
             />
           </div>
+        )}
+
+        {tab === 'registrasi' && (
+          <SeparatedDaftarOrangTuaForm
+            idPosyandu={user?.id_posyandu}
+            idDesa={user?.id_desa}
+          />
         )}
       </div>
 
@@ -218,7 +217,7 @@ export default function AkunOrangTuaPage() {
           setFormOpen(false);
           setSelected(null);
         }}
-        mode={formMode}
+        mode="edit"
         initialValues={selected}
         idPosyandu={user?.id_posyandu}
         idDesa={user?.id_desa}

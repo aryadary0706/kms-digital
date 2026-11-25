@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Tooltip } from "antd";
-import { LogOut, Lock, X, Heart, PanelLeftClose, PanelLeftOpen, HelpCircle } from "lucide-react";
+import { LogOut, Lock, X,PanelLeftClose, PanelLeftOpen, HelpCircle } from "lucide-react";
 import { sidebarlink } from "./sidebarLinks";
 import DropdownLink from "./DropdownLink";
 import { useToast } from "../../ui/Toast";
@@ -72,13 +72,13 @@ export default function Sidebar({ showSidebar, closeSidebar }) {
           }
         >
           {collapsed ? (
-            <Link to="/admin/dashboard" className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-primary-500 text-white">
-              <Heart size={20} strokeWidth={2.25} fill="currentColor" fillOpacity={0.25} />
+            <Link to="/admin/dashboard" className="flex items-center justify-center w-[40px] h-[40px]">
+              <img src="/logo-kota-cimahi.jpeg" alt="Logo Kota Cimahi" className="w-full h-full object-contain" />
             </Link>
           ) : (
             <Link to="/admin/dashboard" className="min-w-0 flex items-center gap-[10px]">
-              <span className="flex items-center justify-center w-[40px] h-[40px] rounded-full bg-primary-500 text-white shrink-0">
-                <Heart size={20} strokeWidth={2.25} fill="currentColor" fillOpacity={0.25} />
+              <span className="flex items-center justify-center w-[40px] h-[40px] shrink-0">
+                <img src="/logo-kota-cimahi.jpeg" alt="Logo Kota Cimahi" className="w-full h-full object-contain" />
               </span>
               <span className="flex flex-col leading-[1.1] min-w-0">
                 <span className="text-body-sm font-bold text-deep-slate truncate">

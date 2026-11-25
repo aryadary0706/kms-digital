@@ -30,6 +30,7 @@ const DesaPage = lazy(() => import('../pages/AdminDashboard/InputDesa'));
 const InputPosyandu = lazy(() => import('../pages/AdminDashboard/InputPosyandu'));
 const RegisterKaderPosyandu = lazy(() => import('../pages/AdminDashboard/RegisterKaderPosyandu'));
 const RegisterTenkes = lazy(() => import('../pages/AdminDashboard/RegisterTenagaKesehatan'));
+const RegisterKelurahan = lazy(() => import('../pages/AdminDashboard/RegisterPetugasKelurahan'));
 const ArtikelList = lazy(() => import('../pages/AdminDashboard/ArtikelList'));
 const ArtikelForm = lazy(() => import('../pages/AdminDashboard/ArtikelForm'));
 const AdminDashboard = lazy(() => import('../features/admin/AdminDashboard'));
@@ -82,10 +83,11 @@ export default function AppRoutes() {
       <Route element={<RequireRole allow={['ADMIN']} />}>
         <Route path="/admin/dashboard" element={withSuspense(<DashboardLayout />)}>
           <Route index element={withSuspense(<AdminDashboard />)} />
-          <Route path="desa" element={withSuspense(<DesaPage />)} />
+          {/* <Route path="desa" element={withSuspense(<DesaPage />)} /> */}
           <Route path="posyandu" element={withSuspense(<InputPosyandu />)} />
           <Route path="kader-posyandu" element={withSuspense(<RegisterKaderPosyandu />)} />
           <Route path="tenaga-kesehatan" element={withSuspense(<RegisterTenkes />)} />
+          <Route path="petugas-kelurahan" element={withSuspense(<RegisterKelurahan />)} />
           <Route path="artikel" element={withSuspense(<ArtikelList />)} />
           <Route path="artikel/baru" element={withSuspense(<ArtikelForm />)} />
         </Route>

@@ -39,6 +39,10 @@ export const qk = {
     all: ['nakes'],
     list: ['nakes', 'list'],
   },
+  petugasKelurahan: {
+    all: ['petugas-kelurahan'],
+    list: ['petugas-kelurahan', 'list'],
+  },
   post: {
     all: ['post'],
     list: (role, userId) => ['post', 'list', role, userId],

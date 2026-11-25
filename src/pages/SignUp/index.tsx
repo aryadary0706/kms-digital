@@ -152,6 +152,13 @@ export default function SignUp() {
         <main className="flex flex-col min-h-screen lg:min-h-0 lg:h-screen lg:overflow-y-auto order-2 lg:order-1 ">
           <header className="lg:hidden flex items-center justify-between px-[17px] py-[17px] border-b border-light-ash bg-white">
             <Link to="/" className="flex items-center gap-[10px]">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white">
+                <img
+                  src="/invinsible-logo-kota-cimahi.png"
+                  alt="Logo Kota Cimahi"
+                  className="h-9 w-9 object-contain"
+                />
+              </div>
               <span className="flex flex-col leading-[1.1]">
                 <span className="text-body-sm font-bold text-deep-slate tracking-tight">
                   KMS Digital
@@ -200,26 +207,23 @@ export default function SignUp() {
                             setRole(value);
                             form.setFieldsValue({ role: value });
                           }}
-                          className={`flex items-center gap-[13px] px-[17px] py-[13px] rounded-default text-left transition-all duration-150 ease-out-quart focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${
-                            active
-                              ? 'bg-white text-deep-slate shadow-card'
-                              : 'bg-transparent text-graphite hover:text-deep-slate'
-                          }`}
+                          className={`flex items-center gap-[13px] px-[17px] py-[13px] rounded-default text-left transition-all duration-150 ease-out-quart focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ${active
+                            ? 'bg-white text-deep-slate shadow-card'
+                            : 'bg-transparent text-graphite hover:text-deep-slate'
+                            }`}
                         >
                           <span
-                            className={`flex items-center justify-center w-[36px] h-[36px] rounded-full shrink-0 transition-colors ${
-                              active
-                                ? 'bg-primary-500 text-white'
-                                : 'bg-white text-graphite'
-                            }`}
+                            className={`flex items-center justify-center w-[36px] h-[36px] rounded-full shrink-0 transition-colors ${active
+                              ? 'bg-primary-500 text-white'
+                              : 'bg-white text-graphite'
+                              }`}
                           >
                             <Icon size={18} strokeWidth={2} />
                           </span>
                           <span className="flex flex-col leading-[1.2] min-w-0">
                             <span
-                              className={`text-body-sm truncate ${
-                                active ? 'font-semibold' : 'font-medium'
-                              }`}
+                              className={`text-body-sm truncate ${active ? 'font-semibold' : 'font-medium'
+                                }`}
                             >
                               {label}
                             </span>
@@ -455,20 +459,28 @@ export default function SignUp() {
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-[120px] -left-[120px] w-[400px] h-[400px] rounded-full bg-primary-500/30 blur-3xl"
+            className="pointer-events-none absolute -bottom-[120px] -right-[120px] w-[400px] h-[400px] rounded-full bg-primary-500/30 blur-3xl"
           />
-
-          <div className="relative overflow-auto">
-            <Link to="/" className="inline-flex items-center gap-[10px] group">
-              <span className="flex flex-col leading-[1.1]">
-                <span className="text-heading-sm font-bold tracking-tight">
-                  KMS Digital
+          <div className="flex flex-row gap-4">
+            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-white">
+              <img
+                src="/invinsible-logo-kota-cimahi.png"
+                alt="Logo Kota Cimahi"
+                className="h-10 w-10 object-contain"
+              />
+            </div>
+            <div className="relative overflow-auto">
+              <Link to="/" className="inline-flex items-center gap-[10px] group">
+                <span className="flex flex-col leading-[1.1]">
+                  <span className="text-heading-sm font-bold tracking-tight">
+                    KMS Digital
+                  </span>
+                  <span className="text-caption text-white/60">
+                    Kelurahan Cibabat
+                  </span>
                 </span>
-                <span className="text-caption text-white/60">
-                  Posyandu Lebakwangi
-                </span>
-              </span>
-            </Link>
+              </Link>
+            </div>
           </div>
 
           <div className="relative max-w-[520px]">

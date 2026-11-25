@@ -40,13 +40,18 @@ function roleLabel(role) {
 
 function BrandMark({ desaName }) {
   return (
-    <Link to="/" className="flex items-center gap-[10px] group">
+    <Link to="/" className="group flex flex-row items-center gap-[10px]">
+      <img
+        src="/logo-kota-cimahi.jpeg"
+        alt="Logo Kota Cimahi"
+        className="h-10 w-10 shrink-0 object-contain"
+      />
       <span className="flex flex-col leading-[1.1]">
-        <span className="text-body-sm font-bold text-deep-slate tracking-tight">
+        <span className="text-body-sm font-bold tracking-tight text-deep-slate">
           KMS Digital
         </span>
         <span className="text-caption text-graphite">
-          {desaName ? `Posyandu ${desaName}` : "Posyandu Cibabat"}
+          Kelurahan Cibabat
         </span>
       </span>
     </Link>
@@ -68,16 +73,14 @@ function NavLink({
     <Link
       to={to}
       onClick={onClick}
-      className={`relative px-[13px] py-[8px] text-body-sm font-medium transition-colors ${
-        active ? "text-deep-slate" : "text-graphite hover:text-deep-slate"
-      }`}
+      className={`relative px-[13px] py-[8px] text-body-sm font-medium transition-colors ${active ? "text-deep-slate" : "text-graphite hover:text-deep-slate"
+        }`}
     >
       <span>{label}</span>
       <span
         aria-hidden
-        className={`absolute left-[13px] right-[13px] -bottom-[14px] h-[3px] rounded-t-full bg-primary-500 transition-opacity duration-150 ${
-          active ? "opacity-100" : "opacity-0"
-        }`}
+        className={`absolute left-[13px] right-[13px] -bottom-[14px] h-[3px] rounded-t-full bg-primary-500 transition-opacity duration-150 ${active ? "opacity-100" : "opacity-0"
+          }`}
       />
     </Link>
   );
@@ -129,11 +132,10 @@ export default function NavbarComp({ isLogin }: { isLogin?: boolean }) {
     <>
       {toast.contextHolder}
       <nav
-        className={`sticky top-0 z-40 bg-white border-b transition-all duration-200 ${
-          scrolled
+        className={`sticky top-0 z-40 bg-white border-b transition-all duration-200 ${scrolled
             ? "border-light-ash shadow-card"
             : "border-transparent"
-        }`}
+          }`}
       >
         <div className="max-w-page mx-auto px-[17px] md:px-[25px]">
           <div className="flex items-center justify-between gap-[17px] h-[72px]">
@@ -233,11 +235,10 @@ export default function NavbarComp({ isLogin }: { isLogin?: boolean }) {
                   key={link.to}
                   to={link.to}
                   onClick={() => setMobileOpen(false)}
-                  className={`flex items-center justify-between px-[17px] py-[13px] rounded-default text-body-sm font-medium transition-colors ${
-                    isActive(link.to)
+                  className={`flex items-center justify-between px-[17px] py-[13px] rounded-default text-body-sm font-medium transition-colors ${isActive(link.to)
                       ? "bg-primary-50 text-primary-700 font-semibold"
                       : "text-deep-slate hover:bg-faint-fog"
-                  }`}
+                    }`}
                 >
                   <span>{link.label}</span>
                   {isActive(link.to) && (

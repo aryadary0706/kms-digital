@@ -21,7 +21,7 @@ export default function PosyanduHeader({
   return (
     <header className="bg-white border-b border-light-ash">
       <div className="max-w-page mx-auto px-[17px] md:px-[25px] py-[33px] md:py-[50px]">
-        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-[17px] mb-[33px]">
+        <div className="flex flex-col md:items-start md:justify-between gap-[17px] mb-[33px]">
           <div className="min-w-0 flex-1">
             <p className="text-caption font-bold uppercase tracking-[0.12em] text-primary-600 mb-[13px]">
               Posyandu · {bulanLabel}
@@ -31,7 +31,7 @@ export default function PosyanduHeader({
             </h1>
             {posyanduName && (
               <p className="text-body-lg text-graphite mt-[13px]">
-                {posyanduName}
+                Posyandu {posyanduName}
               </p>
             )}
           </div>

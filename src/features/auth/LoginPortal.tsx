@@ -134,6 +134,13 @@ export default function LoginPortal() {
               to="/"
               className="inline-flex items-center gap-[10px] group"
             >
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white">
+                <img
+                  src="/invinsible-logo-kota-cimahi.png"
+                  alt="Logo Kota Cimahi"
+                  className="h-9 w-9 object-contain"
+                />
+              </div>
               <span className="flex flex-col leading-[1.1]">
                 <span className="text-body-sm font-bold tracking-tight">
                   KMS Digital
