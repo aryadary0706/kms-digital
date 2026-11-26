@@ -33,7 +33,7 @@ const ROLES = [
   },
   {
     key: 'DESA',
-    label: 'Pemerintah Kelurahan',
+    label: 'Petugas Kelurahan',
     Icon: Building2,
     desc: 'Rekap gizi se-kelurahan',
   },

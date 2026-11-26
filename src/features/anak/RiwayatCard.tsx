@@ -3,7 +3,7 @@ import dayjs from 'dayjs';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import StatusBadge from '../../components/ui/StatusBadge';
-import { classifyAll } from '../pengukuran/statusGizi';
+import { classifyAll, indicatorLabel } from '../pengukuran/statusGizi';
 
 const toZ = (v) => (v == null || v === '' ? null : Number(v));
 
@@ -35,10 +35,10 @@ export default function RiwayatCard({ pengukuran, onEdit, onDelete, canEdit = tr
           {date ? dayjs(date).format('DD MMMM YYYY') : '-'}
         </div>
         <div className="flex flex-wrap gap-1.5 justify-end">
-          <StatusBadge status={bbtb} />
-          <StatusBadge status={tbu} />
-          <StatusBadge status={bbu} />
-          <StatusBadge status={lku} />
+          <StatusBadge status={bbtb} label={indicatorLabel('bbtb', bbtb)} />
+          <StatusBadge status={tbu} label={indicatorLabel('tbu', tbu)} />
+          <StatusBadge status={bbu} label={indicatorLabel('bbu', bbu)} />
+          <StatusBadge status={lku} label={indicatorLabel('lku', lku)} />
         </div>
       </div>
 

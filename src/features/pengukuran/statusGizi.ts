@@ -148,6 +148,43 @@ export const INDICATOR_LABEL = {
   unknown: '-',
 };
 
+// Label per indikator. Nilai enum 'normal' dipakai bersama oleh BB/U, TB/U, dan LK/U,
+// sehingga di INDICATOR_LABEL key-nya saling menimpa. Pakai map ini bila indikator diketahui.
+export const INDICATOR_LABEL_BY_TYPE = {
+  bbu: {
+    [BBU.SANGAT_KURANG]: 'BB Sangat Kurang',
+    [BBU.KURANG]: 'BB Kurang',
+    [BBU.NORMAL]: 'BB Normal',
+    [BBU.LEBIH]: 'Risiko BB Lebih',
+  },
+  tbu: {
+    [TBU.SANGAT_PENDEK]: 'Sangat Pendek',
+    [TBU.PENDEK]: 'Pendek',
+    [TBU.NORMAL]: 'TB Normal',
+    [TBU.TINGGI]: 'Tinggi',
+  },
+  bbtb: {
+    [BBTB.GIZI_BURUK]: 'Gizi Buruk',
+    [BBTB.GIZI_KURANG]: 'Gizi Kurang',
+    [BBTB.GIZI_BAIK]: 'Gizi Baik',
+    [BBTB.BERISIKO_LEBIH]: 'Berisiko Gizi Lebih',
+    [BBTB.GIZI_LEBIH]: 'Gizi Lebih',
+    [BBTB.OBESITAS]: 'Obesitas',
+  },
+  lku: {
+    [LKU.MIKROSEFALI]: 'Mikrosefali',
+    [LKU.NORMAL]: 'LK Normal',
+    [LKU.MAKROSEFALI]: 'Makrosefali',
+  },
+};
+
+export function indicatorLabel(
+  type: keyof typeof INDICATOR_LABEL_BY_TYPE,
+  status: string,
+): string {
+  return INDICATOR_LABEL_BY_TYPE[type]?.[status] ?? '-';
+}
+
 // Tone untuk pewarnaan badge per kategori indikator.
 export const INDICATOR_TONE = {
   [BBU.SANGAT_KURANG]: 'danger',
