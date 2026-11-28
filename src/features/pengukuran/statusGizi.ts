@@ -67,6 +67,17 @@ export function classifyBBTB(z) {
   return BBTB.OBESITAS;
 }
 
+// Status Gizi 4 tingkat untuk badge (Permenkes No. 2/2020, BB/TB):
+//   Gizi Buruk  z < -3 | Gizi Kurang -3 ≤ z < -2 | Gizi Baik -2 ≤ z ≤ +1 | Gizi Lebih z > +1
+// (Berisiko gizi lebih, gizi lebih, dan obesitas digabung menjadi Gizi Lebih.)
+export function classifyGizi(z) {
+  if (!isZ(z)) return BBTB.UNKNOWN;
+  if (z < -3) return BBTB.GIZI_BURUK;
+  if (z < -2) return BBTB.GIZI_KURANG;
+  if (z <= 1) return BBTB.GIZI_BAIK;
+  return BBTB.GIZI_LEBIH;
+}
+
 // LK/U: Lingkar Kepala menurut Umur (indikator perkembangan, bukan status gizi)
 export const LKU = {
   MIKROSEFALI: 'mikrosefali',
@@ -152,29 +163,28 @@ export const INDICATOR_LABEL = {
 // sehingga di INDICATOR_LABEL key-nya saling menimpa. Pakai map ini bila indikator diketahui.
 export const INDICATOR_LABEL_BY_TYPE = {
   bbu: {
-    [BBU.SANGAT_KURANG]: 'BB Sangat Kurang',
-    [BBU.KURANG]: 'BB Kurang',
-    [BBU.NORMAL]: 'BB Normal',
-    [BBU.LEBIH]: 'Risiko BB Lebih',
+    [BBU.SANGAT_KURANG]: 'BB: Sangat Kurang',
+    [BBU.KURANG]: 'BB: Kurang',
+    [BBU.NORMAL]: 'BB: Normal',
+    [BBU.LEBIH]: 'BB: Risiko Lebih',
   },
   tbu: {
-    [TBU.SANGAT_PENDEK]: 'Sangat Pendek',
-    [TBU.PENDEK]: 'Pendek',
-    [TBU.NORMAL]: 'TB Normal',
-    [TBU.TINGGI]: 'Tinggi',
-  },
-  bbtb: {
-    [BBTB.GIZI_BURUK]: 'Gizi Buruk',
-    [BBTB.GIZI_KURANG]: 'Gizi Kurang',
-    [BBTB.GIZI_BAIK]: 'Gizi Baik',
-    [BBTB.BERISIKO_LEBIH]: 'Berisiko Gizi Lebih',
-    [BBTB.GIZI_LEBIH]: 'Gizi Lebih',
-    [BBTB.OBESITAS]: 'Obesitas',
+    [TBU.SANGAT_PENDEK]: 'TB: Sangat Pendek',
+    [TBU.PENDEK]: 'TB: Pendek',
+    [TBU.NORMAL]: 'TB: Normal',
+    [TBU.TINGGI]: 'TB: Tinggi',
   },
   lku: {
-    [LKU.MIKROSEFALI]: 'Mikrosefali',
-    [LKU.NORMAL]: 'LK Normal',
-    [LKU.MAKROSEFALI]: 'Makrosefali',
+    [LKU.MIKROSEFALI]: 'LK: Mikrosefali',
+    [LKU.NORMAL]: 'LK: Normal',
+    [LKU.MAKROSEFALI]: 'LK: Makrosefali',
+  },
+  // Hasil classifyGizi() (4 tingkat BB/TB).
+  gizi: {
+    [BBTB.GIZI_BURUK]: 'Gizi: Buruk',
+    [BBTB.GIZI_KURANG]: 'Gizi: Kurang',
+    [BBTB.GIZI_BAIK]: 'Gizi: Baik',
+    [BBTB.GIZI_LEBIH]: 'Gizi: Lebih',
   },
 };
 

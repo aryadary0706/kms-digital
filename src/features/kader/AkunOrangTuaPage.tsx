@@ -76,6 +76,7 @@ export default function AkunOrangTuaPage() {
 
   const columns = [
     { accessorKey: 'nama', header: 'Nama', enableSorting: true },
+    { accessorKey: 'username', header: 'Username', enableSorting: true },
     { accessorKey: 'alamat', header: 'Alamat', enableSorting: true },
     {
       accessorKey: 'status',

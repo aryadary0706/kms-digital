@@ -192,6 +192,7 @@ export default function DetailAnak() {
                   <RiwayatCard
                     key={p.id}
                     pengukuran={p}
+                    anak={anak}
                     canEdit={canEdit}
                     onEdit={handleEdit}
                     onDelete={handleDelete}

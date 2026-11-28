@@ -80,8 +80,6 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
   const umurBulan =
     anak?.tanggal_lahir && tanggal ? monthDiff(anak.tanggal_lahir, tanggal) : null;
 
-  const showLila = umurBulan != null && umurBulan >= 7;
-
   const zScores =
     anak?.gender && anak?.tanggal_lahir && tanggal
       ? computeAllZScores({
@@ -102,7 +100,7 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
       berat,
       tinggi,
       lingkar_kepala: lingkarKepala,
-      lingkar_lengan: showLila ? lingkarLengan : null,
+      lingkar_lengan: lingkarLengan,
       note: catatan?.trim() || null,
       date: tanggal.format('YYYY-MM-DD'),
       z_score_berat: zScores?.zScoreBB ?? 0,
@@ -197,7 +195,6 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
             unit="cm"
           />
 
-          {showLila && (
             <NumberSlider
               label="Lingkar Lengan (LILA)"
               min={5}
@@ -207,7 +204,6 @@ export default function PengukuranForm({ open, onClose, anak, existing, prefillF
               onChange={setLingkarLengan}
               unit="cm"
             />
-          )}
 
           <CatatanField value={catatan} onChange={setCatatan} />
 

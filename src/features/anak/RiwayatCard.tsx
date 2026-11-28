@@ -3,11 +3,12 @@ import dayjs from 'dayjs';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import StatusBadge from '../../components/ui/StatusBadge';
-import { classifyAll, indicatorLabel } from '../pengukuran/statusGizi';
+import { classifyAll, classifyGizi, indicatorLabel } from '../pengukuran/statusGizi';
+import { computeAllZScores } from '../pengukuran/zScore';
 
 const toZ = (v) => (v == null || v === '' ? null : Number(v));
 
-export default function RiwayatCard({ pengukuran, onEdit, onDelete, canEdit = true }) {
+export default function RiwayatCard({ pengukuran, anak = null, onEdit, onDelete, canEdit = true }) {
   const {
     date,
     berat,
@@ -21,12 +22,28 @@ export default function RiwayatCard({ pengukuran, onEdit, onDelete, canEdit = tr
     z_score_gizi,
   } = pengukuran;
 
-  const { bbu, tbu, bbtb, lku } = classifyAll({
-    zScoreBB: toZ(z_score_berat),
-    zScoreTB: toZ(z_score_tinggi),
-    zScoreLK: toZ(z_score_lingkar_kepala),
-    zScoreGizi: toZ(z_score_gizi),
-  });
+  // Hitung ulang dari data mentah + tanggal lahir terkini (sama seperti ChartWHO),
+  // supaya badge tidak basi bila tanggal lahir/gender anak diubah setelah pengukuran disimpan.
+  // Fallback ke z-score tersimpan bila data anak belum tersedia.
+  const zScores =
+    anak?.gender && anak?.tanggal_lahir && date
+      ? computeAllZScores({
+          berat: toZ(berat),
+          tinggi: toZ(tinggi),
+          lingkarKepala: toZ(lingkarKepala),
+          gender: anak.gender,
+          tanggalLahir: anak.tanggal_lahir,
+          tanggalPengukuran: dayjs(date).format('YYYY-MM-DD'),
+        })
+      : {
+          zScoreBB: toZ(z_score_berat),
+          zScoreTB: toZ(z_score_tinggi),
+          zScoreLK: toZ(z_score_lingkar_kepala),
+          zScoreGizi: toZ(z_score_gizi),
+        };
+
+  const { bbu, tbu, lku } = classifyAll(zScores);
+  const gizi = classifyGizi(zScores.zScoreGizi);
 
   return (
     <Card>
@@ -35,7 +52,7 @@ export default function RiwayatCard({ pengukuran, onEdit, onDelete, canEdit = tr
           {date ? dayjs(date).format('DD MMMM YYYY') : '-'}
         </div>
         <div className="flex flex-wrap gap-1.5 justify-end">
-          <StatusBadge status={bbtb} label={indicatorLabel('bbtb', bbtb)} />
+          <StatusBadge status={gizi} label={indicatorLabel('gizi', gizi)} />
           <StatusBadge status={tbu} label={indicatorLabel('tbu', tbu)} />
           <StatusBadge status={bbu} label={indicatorLabel('bbu', bbu)} />
           <StatusBadge status={lku} label={indicatorLabel('lku', lku)} />

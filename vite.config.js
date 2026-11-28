@@ -23,7 +23,7 @@ export default defineConfig({
         scope: '/',
         display: 'standalone',
         orientation: 'portrait',
-        theme_color: '#FF7070',
+        theme_color: '#FDFDFD',
         background_color: '#f9f9fb',
         lang: 'id',
         categories: ['health', 'medical', 'education'],

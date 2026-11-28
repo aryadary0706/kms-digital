@@ -83,7 +83,7 @@ export default function AppRoutes() {
       <Route element={<RequireRole allow={['ADMIN']} />}>
         <Route path="/admin/dashboard" element={withSuspense(<DashboardLayout />)}>
           <Route index element={withSuspense(<AdminDashboard />)} />
-          {/* <Route path="desa" element={withSuspense(<DesaPage />)} /> */}
+          <Route path="desa" element={withSuspense(<DesaPage />)} />
           <Route path="posyandu" element={withSuspense(<InputPosyandu />)} />
           <Route path="kader-posyandu" element={withSuspense(<RegisterKaderPosyandu />)} />
           <Route path="tenaga-kesehatan" element={withSuspense(<RegisterTenkes />)} />

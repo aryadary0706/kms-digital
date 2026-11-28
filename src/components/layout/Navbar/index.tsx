@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Avatar } from "antd";
-import { Menu, X, LogOut, HospitalIcon, ChevronDown, HelpCircle } from "lucide-react";
+import { Menu, X, LogOut, ChevronDown, HelpCircle, Download } from "lucide-react";
 import { useSession } from "../../../features/auth/useSession";
 import Button from "../../ui/Button";
 import { useToast } from "../../ui/Toast";
@@ -104,6 +104,32 @@ export default function NavbarComp({ isLogin }: { isLogin?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Simpan event install PWA dari browser agar bisa dipicu lewat tombol "Unduh".
+  const [installPrompt, setInstallPrompt] = useState<any>(null);
+  useEffect(() => {
+    const onBeforeInstall = (e) => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    };
+    const onInstalled = () => setInstallPrompt(null);
+    window.addEventListener("beforeinstallprompt", onBeforeInstall);
+    window.addEventListener("appinstalled", onInstalled);
+    return () => {
+      window.removeEventListener("beforeinstallprompt", onBeforeInstall);
+      window.removeEventListener("appinstalled", onInstalled);
+    };
+  }, []);
+
+  const handleInstall = async () => {
+    if (!installPrompt) {
+      toast.info("Buka menu browser lalu pilih \"Tambahkan ke Layar Utama\" untuk mengunduh aplikasi.");
+      return;
+    }
+    installPrompt.prompt();
+    await installPrompt.userChoice;
+    setInstallPrompt(null);
+  };
+
   const handleLogout = () => {
     logout();
     toast.success("Berhasil logout");
@@ -141,19 +167,31 @@ export default function NavbarComp({ isLogin }: { isLogin?: boolean }) {
           <div className="flex items-center justify-between gap-[17px] h-[72px]">
             <BrandMark desaName={user?.desa_name} />
 
-            <button
-              type="button"
-              onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden flex items-center justify-center w-[44px] h-[44px] rounded-default text-deep-slate hover:bg-faint-fog transition-colors"
-              aria-label={mobileOpen ? "Tutup menu" : "Buka menu"}
-              aria-expanded={mobileOpen}
-            >
-              {mobileOpen ? (
-                <X size={22} strokeWidth={2} />
-              ) : (
-                <Menu size={22} strokeWidth={2} />
+            <div className="md:hidden flex items-center gap-[8px]">
+              {!isLogin && (
+                <Button
+                  variant="default"
+                  size="sm"
+                  leadingIcon={<Download size={16} strokeWidth={1.75} />}
+                  onClick={handleInstall}
+                >
+                  Unduh
+                </Button>
               )}
-            </button>
+              <button
+                type="button"
+                onClick={() => setMobileOpen((v) => !v)}
+                className="flex items-center justify-center w-[44px] h-[44px] rounded-default text-deep-slate hover:bg-faint-fog transition-colors"
+                aria-label={mobileOpen ? "Tutup menu" : "Buka menu"}
+                aria-expanded={mobileOpen}
+              >
+                {mobileOpen ? (
+                  <X size={22} strokeWidth={2} />
+                ) : (
+                  <Menu size={22} strokeWidth={2} />
+                )}
+              </button>
+            </div>
 
             <div className="hidden md:flex items-center gap-[8px] flex-1 justify-center">
               {navLinks.map((link) => (
@@ -210,6 +248,14 @@ export default function NavbarComp({ isLogin }: { isLogin?: boolean }) {
                 </>
               ) : (
                 <>
+                  <Button
+                    variant="default"
+                    size="sm"
+                    leadingIcon={<Download size={16} strokeWidth={1.75} />}
+                    onClick={handleInstall}
+                  >
+                    Unduh
+                  </Button>
                   <Link
                     to="/masuk"
                     className="text-body-sm font-semibold text-deep-slate hover:text-primary-600 transition-colors px-[8px]"

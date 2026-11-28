@@ -52,7 +52,6 @@ export default function RegisterPetugasKelurahan() {
         password: values.password,
         password_confirmation: values.password_confirmation,
         jabatan: values.jabatan,
-        no_hp: values.no_hp,
         alamat: values.alamat,
         id_desa: values.id_desa,
         status: true,
@@ -78,7 +77,6 @@ export default function RegisterPetugasKelurahan() {
           ? values.password_confirmation
           : undefined,
         jabatan: values.jabatan,
-        no_hp: values.no_hp,
         alamat: values.alamat,
         id_desa: values.id_desa,
         status: true,
@@ -96,7 +94,6 @@ export default function RegisterPetugasKelurahan() {
                     username: values.username,
                     email: values.email || undefined,
                     jabatan: values.jabatan,
-                    no_hp: values.no_hp,
                     alamat: values.alamat,
                     id_desa: values.id_desa,
                     desa: values.id_desa
@@ -184,7 +181,6 @@ export default function RegisterPetugasKelurahan() {
       username: record.username,
       email: record.email,
       jabatan: record.jabatan,
-      no_hp: record.no_hp,
       alamat: record.alamat,
       id_desa: record.desa?.id ?? record.id_desa,
     });
@@ -205,7 +201,6 @@ export default function RegisterPetugasKelurahan() {
     { accessorKey: "nama", header: "Nama", enableSorting: true },
     { accessorKey: "username", header: "Username", enableSorting: true },
     { accessorKey: "jabatan", header: "Jabatan", enableSorting: true },
-    { accessorKey: "no_hp", header: "No. HP", enableSorting: true },
     {
       id: "desa",
       header: "Kelurahan",
@@ -399,16 +394,6 @@ export default function RegisterPetugasKelurahan() {
             rules={[{ required: true, message: "Jabatan masih kosong" }]}
           >
             <Input placeholder="Contoh: Sekretaris Kelurahan" className="h-[52px] text-base" />
-          </Form.Item>
-          <Form.Item
-            label={<span className="text-body-sm font-medium text-deep-slate">No. HP</span>}
-            name="no_hp"
-            rules={[
-              { required: true, message: "No. HP masih kosong" },
-              { pattern: /^[0-9+]{8,15}$/, message: "No. HP tidak valid" },
-            ]}
-          >
-            <Input placeholder="08xxxxxxxxxx" inputMode="tel" className="h-[52px] text-base" />
           </Form.Item>
           <Form.Item
             label={<span className="text-body-sm font-medium text-deep-slate">Alamat</span>}
